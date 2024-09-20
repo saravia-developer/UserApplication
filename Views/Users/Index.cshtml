@@ -3,8 +3,49 @@
 @{
     ViewData["Title"] = "Index";
 }
-<!--
-<h1>Index</h1>
+
+<style>
+    .container-fields {
+        display: grid;
+        grid-template-columns: repeat(3, 170px);
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 45px;
+    }
+
+    .bubble {
+        width: 600px;
+        height: 40px;
+        background: red;
+        border-radius: 0% 0% 100% 100% / 5% 5% 100% 100%;
+        margin: 0 auto 30px;
+    }
+
+    .field {
+        border: 1px solid black;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        padding: 5px
+    }
+
+    .field p {
+        margin: 5px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="bubble"></div>
+<div class="container-fields">
+@foreach (var item in Model)
+{
+    <div class="field">
+        <b>@Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.LastName)</b>
+        <p>DNI @Html.DisplayFor(modelItem => item.Dni)</p>
+    </div>
+}
+</div>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -45,45 +86,3 @@
 }
     </tbody>
 </table>
--->
-<style>
-    .container-fields {
-        display: grid;
-        grid-template-columns: repeat(3, 170px);
-        gap: 15px;
-        justify-content: center;
-    }
-
-    .bubble {
-        width: 600px;
-        height: 40px;
-        background: red;
-        border-radius: 0% 0% 100% 100% / 5% 5% 100% 100%;
-        margin: 0 auto 30px;
-    }
-
-    .field {
-        border: 1px solid black;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        font-size: 17px;
-        padding: 5px
-    }
-
-    .field p {
-        margin: 5px;
-        font-size: 14px;
-    }
-</style>
-
-<div class="bubble"></div>
-<div class="container-fields">
-@foreach (var item in Model)
-{
-    <div class="field">
-        <b>@Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.LastName)</b>
-        <p>DNI @Html.DisplayFor(modelItem => item.Dni)</p>
-    </div>
-}
-</div>
